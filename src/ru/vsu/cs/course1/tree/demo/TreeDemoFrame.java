@@ -76,6 +76,7 @@ public class TreeDemoFrame extends JFrame {
 
         buttonRefactorTree.addActionListener(actionEvent -> {
             try {
+                /*
                 int level = Integer.parseInt(textFieldTreeLevel.getText());
                 if (marker) {
                     tree.refactoringLeftSubTree(level);
@@ -84,6 +85,10 @@ public class TreeDemoFrame extends JFrame {
                 {
                     tree.refactoringRightSubTree(level);
                 }
+                repaintTree();
+                */
+
+                tree.refactorTree();
                 repaintTree();
             } catch (Exception ex) {
                 SwingUtils.showErrorMessageBox(ex);

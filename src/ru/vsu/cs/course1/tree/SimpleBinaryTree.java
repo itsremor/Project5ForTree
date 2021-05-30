@@ -218,4 +218,32 @@ public class SimpleBinaryTree<T> implements BinaryTree<T> {
         this.root = root;
     }
 
+    public void refactorTree(){
+        insideToTreeWithRef(this.root);
+    }
+
+    private void insideToTreeWithRef(SimpleTreeNode node){
+        if(isLeaf(node)){
+            addPotomok(node);
+            return;
+        }
+
+        if(!(node.left == null)) insideToTreeWithRef(node.left);
+        if(!(node.right == null)) insideToTreeWithRef(node.right);
+    }
+
+    private boolean isLeaf(SimpleTreeNode node){
+        if (node.left == null && node.right == null) return true;
+        return false;
+    }
+
+    private void addPotomok(SimpleTreeNode node){
+        Integer value = (Integer) node.value;
+        //toDo пофиксить красное подчёркивание
+        if(value % 2 == 0) node.left = new SimpleTreeNode(1);
+        else node.left = new SimpleTreeNode(-1);
+    }
+
+
+
 }
